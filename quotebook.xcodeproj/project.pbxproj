@@ -16,6 +16,8 @@
 		019D54B326635BD300E4BB86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 019D54B126635BD300E4BB86 /* LaunchScreen.storyboard */; };
 		019D54BE26635BD300E4BB86 /* quotebookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019D54BD26635BD300E4BB86 /* quotebookTests.swift */; };
 		019D54C926635BD400E4BB86 /* quotebookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019D54C826635BD400E4BB86 /* quotebookUITests.swift */; };
+		019D54D826635C4300E4BB86 /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019D54D726635C4300E4BB86 /* Quotes.swift */; };
+		019D54DA26635FA800E4BB86 /* DataOps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019D54D926635FA800E4BB86 /* DataOps.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		019D54C426635BD400E4BB86 /* quotebookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = quotebookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		019D54C826635BD400E4BB86 /* quotebookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quotebookUITests.swift; sourceTree = "<group>"; };
 		019D54CA26635BD400E4BB86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		019D54D726635C4300E4BB86 /* Quotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
+		019D54D926635FA800E4BB86 /* DataOps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataOps.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,7 @@
 		019D54A226635BD200E4BB86 /* quotebook */ = {
 			isa = PBXGroup;
 			children = (
+				019D54D626635C3200E4BB86 /* Model */,
 				019D54A326635BD200E4BB86 /* AppDelegate.swift */,
 				019D54A526635BD200E4BB86 /* SceneDelegate.swift */,
 				019D54A726635BD200E4BB86 /* ViewController.swift */,
@@ -129,6 +134,15 @@
 				019D54CA26635BD400E4BB86 /* Info.plist */,
 			);
 			path = quotebookUITests;
+			sourceTree = "<group>";
+		};
+		019D54D626635C3200E4BB86 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				019D54D726635C4300E4BB86 /* Quotes.swift */,
+				019D54D926635FA800E4BB86 /* DataOps.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +277,8 @@
 			files = (
 				019D54A826635BD200E4BB86 /* ViewController.swift in Sources */,
 				019D54A426635BD200E4BB86 /* AppDelegate.swift in Sources */,
+				019D54DA26635FA800E4BB86 /* DataOps.swift in Sources */,
+				019D54D826635C4300E4BB86 /* Quotes.swift in Sources */,
 				019D54A626635BD200E4BB86 /* SceneDelegate.swift in Sources */,
 				019D54AE26635BD200E4BB86 /* quotebook.xcdatamodeld in Sources */,
 			);
