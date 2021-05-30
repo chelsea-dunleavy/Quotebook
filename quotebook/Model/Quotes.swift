@@ -39,7 +39,7 @@ public class Quote: NSObject, NSCoding {
         case desc = "description"
     }
     
-    init(quote: String, desc: String) {
+    init(quote: String, desc: String = "") {
         self.quote = quote
         self.desc = desc
     }

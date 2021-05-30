@@ -26,14 +26,34 @@ class ViewController: UIViewController {
         let qv = QuoteView()
         qv.translatesAutoresizingMaskIntoConstraints = false
         qv.backgroundColor = .clear
+        qv.alpha = 0
         return qv
     }()
     
+    lazy var rightSwipeGesture: UISwipeGestureRecognizer = {
+        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(ySwipe))
+        swipe.direction = .right
+        return swipe
+    }()
+    
+    lazy var leftSwipeGesture: UISwipeGestureRecognizer = {
+        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(ySwipe))
+        swipe.direction = .left
+        return swipe
+    }()
+    
     var circles: [Circle] = []
+    
+    var quotes: [Quote] = []
+    
+    var index = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        DataOps.checkFirstLaunch()
+        quotes = DataOps.retrieveData() ?? []
+        quotes.shuffle()
         setupView()
         setupConstraints()
     }
@@ -47,6 +67,10 @@ class ViewController: UIViewController {
     func setupView() {
         view.backgroundColor = Colors.darkBackground
         setupCircles()
+        setupQuoteView(quote: quotes[0])
+        
+        view.addGestureRecognizer(leftSwipeGesture)
+        view.addGestureRecognizer(rightSwipeGesture)
     }
     
     func setupConstraints() {
@@ -74,6 +98,33 @@ class ViewController: UIViewController {
         addCircleView(color: UIColor.darkGray, topAnchor: 100, leftAnchor: 50, widthAnchor: 30, heightAnchor: 30, ySide: .left, xSide: .top)
     }
     
+    func setupQuoteView(quote: Quote) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.quoteView.alpha = 0
+        }, completion: {fin in
+            self.quoteView.quoteLabel.text = quote.quote
+            self.quoteView.descLabel.text = quote.desc
+            UIView.animate(withDuration: 0.3, animations: {
+                self.quoteView.alpha = 1
+            })
+        })
+    }
+    
+    @objc func ySwipe(_ sender: UISwipeGestureRecognizer) {
+        switch sender.direction {
+        case .left:
+            index = (index + 1) % (quotes.count)
+            setupQuoteView(quote: quotes[index])
+        case .right:
+            index = index - 1
+            if index < 0 {
+                index = quotes.count - 1
+            }
+            setupQuoteView(quote: quotes[index])
+        default:
+            return
+        }
+    }
 
     
     enum ySide {

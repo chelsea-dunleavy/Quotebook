@@ -24,7 +24,18 @@ class NavBar: UIView {
         stack.translatesAutoresizingMaskIntoConstraints = false
         
         stack.addArrangedSubview(titleLabel)
-        stack.addArrangedSubview(rightArrowButton)
+        stack.addArrangedSubview(buttonStackView)
+        return stack
+    }()
+    
+    lazy var buttonStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.distribution = .fillEqually
+        stack.spacing = 20
+        
+        stack.addArrangedSubview(plusButton)
+        stack.addArrangedSubview(pencilButton)
         return stack
     }()
     
@@ -37,9 +48,16 @@ class NavBar: UIView {
         return label
     }()
     
-    lazy var rightArrowButton: UIButton = {
+    lazy var plusButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "arrow.right"), for: .normal)
+        button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.tintColor = .white
+        return button
+    }()
+    
+    lazy var pencilButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "pencil"), for: .normal)
         button.tintColor = .white
         return button
     }()
