@@ -19,6 +19,9 @@ class ViewController: UIViewController {
         let nb = NavBar()
         nb.translatesAutoresizingMaskIntoConstraints = false
         nb.backgroundColor = .clear
+        nb.plusButtonCompletion = plusButtonTapped
+        nb.pencilButtonCompletion = pencilButtonTapped
+        nb.checkButtonCompletion = checkButtonTapped
         return nb
     }()
     
@@ -47,6 +50,8 @@ class ViewController: UIViewController {
     var quotes: [Quote] = []
     
     var index = 0
+    
+    var yConstraint: NSLayoutConstraint? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,7 +87,8 @@ class ViewController: UIViewController {
         navBar.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
         navBar.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        quoteView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        yConstraint = quoteView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        yConstraint!.isActive = true
         quoteView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         quoteView.heightAnchor.constraint(equalToConstant: 250).isActive = true
         quoteView.widthAnchor.constraint(equalToConstant: 200).isActive = true
@@ -169,5 +175,39 @@ class ViewController: UIViewController {
     }
 
 
+}
+
+extension ViewController {
+    func plusButtonTapped() {
+        for circle in circles { circle.scaleDown() }
+        quoteView.addQuoteScreen()
+        moveUpQuoteView()
+        navBar.addQuoteScreen()
+    }
+    
+    func moveUpQuoteView() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.yConstraint?.constant = -100
+        })
+    }
+    
+    func resetAddQuoteScreen() {
+        for circle in circles { circle.scaleUp() }
+        self.yConstraint?.constant = 0
+        quoteView.resetAddQuoteScreen()
+    }
+    
+    func pencilButtonTapped() {
+    }
+    
+    func checkButtonTapped() {
+        resetAddQuoteScreen()
+        navBar.resetAddQuoteScreen()
+        guard let newQuote = quoteView.getQuoteInTextField() else { return }
+        quotes.append(newQuote)
+        DataOps.replaceData(quotes: quotes)
+        setupQuoteView(quote: newQuote)
+        index = quotes.count - 1
+    }
 }
 

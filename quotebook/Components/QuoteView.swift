@@ -44,6 +44,16 @@ class QuoteView: UIView {
         return label
     }()
     
+    lazy var quoteTextField: UITextView = {
+        let tv = UITextView()
+        tv.adjustsFontForContentSizeCategory = true
+        tv.isScrollEnabled = false
+        tv.textColor = .white
+        tv.font = Fonts.regular.withSize(25)
+        tv.backgroundColor = .clear
+        return tv
+    }()
+    
     lazy var descLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .right
@@ -65,6 +75,34 @@ class QuoteView: UIView {
         stackView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         stackView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+    }
+    
+    func addQuoteScreen() {
+        stackView.arrangedSubviews[0].removeFromSuperview()
+        stackView.insertArrangedSubview(quoteTextField, at: 0)
+        quoteTextField.becomeFirstResponder()
+    }
+    
+    func resetAddQuoteScreen() {
+        quoteTextField.resignFirstResponder()
+        UIView.animate(withDuration: 0.3, animations: {
+            self.stackView.alpha = 0
+        }, completion: {fin in
+            self.stackView.arrangedSubviews[0].removeFromSuperview()
+            self.stackView.insertArrangedSubview(self.quoteLabel, at: 0)
+            UIView.animate(withDuration: 0.3, animations: {
+                self.stackView.alpha = 1
+            })
+        })
+    }
+    
+    func getQuoteInTextField() -> Quote? {
+        if quoteTextField.hasText {
+            let newQuote = Quote(quote: quoteTextField.text)
+            quoteTextField.text = ""
+            return newQuote
+        }
+        return nil
     }
 
 }

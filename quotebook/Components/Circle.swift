@@ -38,5 +38,40 @@ class Circle: UIView {
         scaleAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         layer.add(scaleAnimation, forKey: "scale")
     }
+    
+    func scaleDown() {
+        CATransaction.begin()
+        
+        let scaleAnimation:CABasicAnimation = CABasicAnimation(keyPath: "transform.scale")
+        scaleAnimation.duration = 0.6
+        scaleAnimation.fromValue = 1
+        scaleAnimation.toValue = 0
+        scaleAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        
+        CATransaction.setCompletionBlock({[weak self] in
+            self?.alpha = 0
+        })
+        
+        layer.add(scaleAnimation, forKey: "scaleDown")
+        CATransaction.commit()
+    }
+    
+    func scaleUp() {
+        CATransaction.begin()
+        
+        let scaleAnimation:CABasicAnimation = CABasicAnimation(keyPath: "transform.scale")
+        scaleAnimation.duration = 0.6
+        scaleAnimation.fromValue = 0
+        scaleAnimation.toValue = 1
+        scaleAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        
+        layer.add(scaleAnimation, forKey: "scaleUp")
+        
+        CATransaction.commit()
+        
+        UIView.animate(withDuration: 0.6, animations: {
+            self.alpha = 1
+        })
+    }
 
 }
