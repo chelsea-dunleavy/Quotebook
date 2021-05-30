@@ -29,6 +29,7 @@ public class DataOps {
         
         let qb = NSManagedObject(entity: userEntity, insertInto: managedContext) as! QuoteBook
         let interVal = Quotes(quotesArr: quotes)
+        print(interVal.quotes.count)
         
         qb.setValue(interVal, forKey: Key.quotesArr.rawValue)
         
@@ -38,7 +39,6 @@ public class DataOps {
             print("\(error)")
             return
         }
-        print("Success!")
     }
     
     static func retrieveData() -> [Quote]? {
@@ -50,8 +50,9 @@ public class DataOps {
         do {
             let result = try managedContext.fetch(fetchRequest)
             
-            for data in result as! [NSManagedObject] {
-                let quotes = data.value(forKey: Key.quotesArr.rawValue) as! Quotes
+            if let res = result as? [NSManagedObject] {
+                let data = res.last
+                let quotes = data?.value(forKey: Key.quotesArr.rawValue) as! Quotes
                 return quotes.quotes
             }
             

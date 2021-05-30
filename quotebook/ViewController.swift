@@ -61,6 +61,8 @@ class ViewController: UIViewController {
         quotes.shuffle()
         setupView()
         setupConstraints()
+        
+        for quote in quotes { print(quote.quote) }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -186,8 +188,9 @@ extension ViewController {
     }
     
     func moveUpQuoteView() {
+        self.yConstraint?.constant = -100
         UIView.animate(withDuration: 0.3, animations: {
-            self.yConstraint?.constant = -100
+            self.view.layoutIfNeeded()
         })
     }
     
@@ -198,6 +201,12 @@ extension ViewController {
     }
     
     func pencilButtonTapped() {
+        for circle in circles { circle.scaleDown() }
+        quoteView.addQuoteScreen(editQuote: quotes[index].quote)
+        moveUpQuoteView()
+        navBar.addQuoteScreen()
+        quotes.remove(at: index)
+        DataOps.replaceData(quotes: quotes)
     }
     
     func checkButtonTapped() {

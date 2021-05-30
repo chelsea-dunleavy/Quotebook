@@ -77,9 +77,10 @@ class QuoteView: UIView {
         stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     
-    func addQuoteScreen() {
+    func addQuoteScreen(editQuote: String = "") {
         stackView.arrangedSubviews[0].removeFromSuperview()
         stackView.insertArrangedSubview(quoteTextField, at: 0)
+        quoteTextField.text = editQuote
         quoteTextField.becomeFirstResponder()
     }
     
