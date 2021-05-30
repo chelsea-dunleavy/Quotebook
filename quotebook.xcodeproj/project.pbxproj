@@ -18,6 +18,14 @@
 		019D54C926635BD400E4BB86 /* quotebookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019D54C826635BD400E4BB86 /* quotebookUITests.swift */; };
 		019D54D826635C4300E4BB86 /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019D54D726635C4300E4BB86 /* Quotes.swift */; };
 		019D54DA26635FA800E4BB86 /* DataOps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019D54D926635FA800E4BB86 /* DataOps.swift */; };
+		019D54DC266366F800E4BB86 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019D54DB266366F800E4BB86 /* Colors.swift */; };
+		019D54DF26636A2500E4BB86 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019D54DE26636A2500E4BB86 /* Circle.swift */; };
+		019D54E1266374B500E4BB86 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019D54E0266374B500E4BB86 /* NavBar.swift */; };
+		019D54E42663789500E4BB86 /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 019D54E32663789500E4BB86 /* ProximaNova-Regular.otf */; };
+		019D54E62663789F00E4BB86 /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 019D54E52663789F00E4BB86 /* ProximaNova-Bold.otf */; };
+		019D54E82663791600E4BB86 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019D54E72663791600E4BB86 /* Fonts.swift */; };
+		019D54EA26637AA500E4BB86 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019D54E926637AA500E4BB86 /* QuoteView.swift */; };
+		019D54EC26637D3700E4BB86 /* Proxima Nova Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 019D54EB26637D3700E4BB86 /* Proxima Nova Thin.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +63,14 @@
 		019D54CA26635BD400E4BB86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		019D54D726635C4300E4BB86 /* Quotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
 		019D54D926635FA800E4BB86 /* DataOps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataOps.swift; sourceTree = "<group>"; };
+		019D54DB266366F800E4BB86 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		019D54DE26636A2500E4BB86 /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
+		019D54E0266374B500E4BB86 /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
+		019D54E32663789500E4BB86 /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
+		019D54E52663789F00E4BB86 /* ProximaNova-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Bold.otf"; sourceTree = "<group>"; };
+		019D54E72663791600E4BB86 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		019D54E926637AA500E4BB86 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
+		019D54EB26637D3700E4BB86 /* Proxima Nova Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Thin.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +121,8 @@
 		019D54A226635BD200E4BB86 /* quotebook */ = {
 			isa = PBXGroup;
 			children = (
+				019D54E22663787B00E4BB86 /* Fonts */,
+				019D54DD26636A1100E4BB86 /* Components */,
 				019D54D626635C3200E4BB86 /* Model */,
 				019D54A326635BD200E4BB86 /* AppDelegate.swift */,
 				019D54A526635BD200E4BB86 /* SceneDelegate.swift */,
@@ -141,8 +159,30 @@
 			children = (
 				019D54D726635C4300E4BB86 /* Quotes.swift */,
 				019D54D926635FA800E4BB86 /* DataOps.swift */,
+				019D54DB266366F800E4BB86 /* Colors.swift */,
+				019D54E72663791600E4BB86 /* Fonts.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		019D54DD26636A1100E4BB86 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				019D54DE26636A2500E4BB86 /* Circle.swift */,
+				019D54E0266374B500E4BB86 /* NavBar.swift */,
+				019D54E926637AA500E4BB86 /* QuoteView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		019D54E22663787B00E4BB86 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				019D54E32663789500E4BB86 /* ProximaNova-Regular.otf */,
+				019D54E52663789F00E4BB86 /* ProximaNova-Bold.otf */,
+				019D54EB26637D3700E4BB86 /* Proxima Nova Thin.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,8 +289,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				019D54B326635BD300E4BB86 /* LaunchScreen.storyboard in Resources */,
+				019D54EC26637D3700E4BB86 /* Proxima Nova Thin.otf in Resources */,
+				019D54E42663789500E4BB86 /* ProximaNova-Regular.otf in Resources */,
 				019D54B026635BD300E4BB86 /* Assets.xcassets in Resources */,
 				019D54AB26635BD200E4BB86 /* Main.storyboard in Resources */,
+				019D54E62663789F00E4BB86 /* ProximaNova-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,8 +319,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				019D54A826635BD200E4BB86 /* ViewController.swift in Sources */,
+				019D54DF26636A2500E4BB86 /* Circle.swift in Sources */,
+				019D54E1266374B500E4BB86 /* NavBar.swift in Sources */,
 				019D54A426635BD200E4BB86 /* AppDelegate.swift in Sources */,
 				019D54DA26635FA800E4BB86 /* DataOps.swift in Sources */,
+				019D54DC266366F800E4BB86 /* Colors.swift in Sources */,
+				019D54EA26637AA500E4BB86 /* QuoteView.swift in Sources */,
+				019D54E82663791600E4BB86 /* Fonts.swift in Sources */,
 				019D54D826635C4300E4BB86 /* Quotes.swift in Sources */,
 				019D54A626635BD200E4BB86 /* SceneDelegate.swift in Sources */,
 				019D54AE26635BD200E4BB86 /* quotebook.xcdatamodeld in Sources */,
