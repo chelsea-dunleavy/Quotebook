@@ -42,7 +42,7 @@ class NavBar: UIView {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.text = "quotebook"
+        label.text = "chelsea"
         label.font = Fonts.bold.withSize(20)
         label.textColor = .white
         return label
