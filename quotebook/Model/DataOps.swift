@@ -51,6 +51,7 @@ public class DataOps {
             let result = try managedContext.fetch(fetchRequest)
             
             if let res = result as? [NSManagedObject] {
+                if res.count == 0 { return nil }
                 let data = res.last
                 let quotes = data?.value(forKey: Key.quotesArr.rawValue) as! Quotes
                 return quotes.quotes
