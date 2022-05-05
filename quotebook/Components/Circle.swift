@@ -47,10 +47,8 @@ class Circle: UIView {
         scaleAnimation.fromValue = 1
         scaleAnimation.toValue = 0
         scaleAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
-        
-        CATransaction.setCompletionBlock({[weak self] in
-            self?.alpha = 0
-        })
+        scaleAnimation.isRemovedOnCompletion = false
+        scaleAnimation.fillMode = .forwards
         
         layer.add(scaleAnimation, forKey: "scaleDown")
         CATransaction.commit()
@@ -64,14 +62,12 @@ class Circle: UIView {
         scaleAnimation.fromValue = 0
         scaleAnimation.toValue = 1
         scaleAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        scaleAnimation.isRemovedOnCompletion = false
+        scaleAnimation.fillMode = .forwards
         
         layer.add(scaleAnimation, forKey: "scaleUp")
         
         CATransaction.commit()
-        
-        UIView.animate(withDuration: 0.6, animations: {
-            self.alpha = 1
-        })
     }
 
 }
