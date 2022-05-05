@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    let haptics = UIImpactFeedbackGenerator()
+    
     lazy var purpleCircleView: Circle = {
         let v = Circle()
         v.translatesAutoresizingMaskIntoConstraints = false
@@ -119,6 +121,7 @@ class ViewController: UIViewController {
     }
     
     @objc func ySwipe(_ sender: UISwipeGestureRecognizer) {
+        haptics.impactOccurred()
         switch sender.direction {
         case .left:
             index = (index + 1) % (quotes.count)
@@ -181,6 +184,7 @@ class ViewController: UIViewController {
 
 extension ViewController {
     func plusButtonTapped() {
+        haptics.impactOccurred()
         for circle in circles { circle.scaleDown() }
         quoteView.addQuoteScreen()
         moveUpQuoteView()
@@ -201,6 +205,7 @@ extension ViewController {
     }
     
     func pencilButtonTapped() {
+        haptics.impactOccurred()
         for circle in circles { circle.scaleDown() }
         quoteView.addQuoteScreen(editQuote: quotes[index].quote)
         moveUpQuoteView()
@@ -210,6 +215,7 @@ extension ViewController {
     }
     
     func checkButtonTapped() {
+        haptics.impactOccurred()
         resetAddQuoteScreen()
         navBar.resetAddQuoteScreen()
         guard let newQuote = quoteView.getQuoteInTextField() else { return }
